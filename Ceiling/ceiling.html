@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SR Interiors - Home</title>
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+
+       
+      
+        /* Home Page Section */
+        #HomePageSection {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Background Image */
+        #movingImage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Overlay Styles */
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            z-index: 5; /* Ensure it's above the background image but below the content */
+        }
+
+        #logoImage {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 160px;
+            height: auto;
+            z-index: 10;
+            filter: drop-shadow(0 0 0.25rem white);
+        }
+
+        #getInTouchButton {
+            position: absolute;
+            top: 25px;
+            right: 50px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: transparent;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            z-index: 10;
+            font-weight: bold;
+            text-shadow: 2px 4px 4px black;
+        }
+
+        #getInTouchButton:hover {
+            background-color: white;
+            color: black;
+            text-shadow: none;
+        }
+
+        /* Menu Button Styles */
+        #menuButton {
+            position: absolute;
+            top: 6px;
+            left: 30px;
+            padding: 20px 30px;
+            font-size: 28px;
+            background-color: transparent;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        #menuButton:hover {
+            background-color: white;
+            color: black;
+            text-shadow: none;
+        }
+        #shopButton {
+          position: absolute;
+            top: 25px;
+            left: 110px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: transparent;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            z-index: 10;
+            font-weight: bold;
+            text-shadow: 2px 4px 4px black;
+            
+        }
+
+        #shopButton:hover,
+        #menuButton:hover {
+            background-color: white;
+            color: black;
+            text-shadow: none;
+        }
+
+
+        /* Side Menu Styles */
+        #sideMenu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: transparent;
+            transition: left 0.3s ease;
+            z-index: 9;
+            padding-top: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .menuOption {
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .menuOption:hover {
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+        }
+
+        /* Home Page Paragraph */
+        #homeParagraph {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            padding: 20px;
+            font-size: 24px;
+            color: white;
+            background: transparent;
+            border-radius: 15px;
+            text-align: center;
+            z-index: 10; /* Ensure it’s above the overlay */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            line-height: 1.4;
+            margin-top: -300px;
+        }
+
+        #homeParagraph h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #78c0fb; /* Gold color */
+        }
+
+        #homeParagraph p {
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+        }
+
+        /* About Us Section */
+        #aboutUsSection {
+            background: linear-gradient(to bottom, #f2f2f2, #e6e6e6); /* Gradient background */
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #aboutUsSection h2 {
+            font-size: 48px;
+            margin-bottom: 30px;
+            color: black;
+            font-weight: bold;
+        }
+
+        #aboutUsSection .owners {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        #aboutUsSection .owner {
+            flex: 1;
+            max-width: 350px;
+            text-align: center;
+        }
+
+        #aboutUsSection .owner img {
+            width: 100%;
+            height: 100%;
+            max-width: 250px;
+            max-height: 250px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            object-fit: cover;
+        }
+
+        #aboutUsSection .owner img:hover {
+            transform: scale(1.05);
+        }
+
+        #aboutUsSection .owner p {
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+            margin-top: 10px;
+        }
+
+        #aboutUsSection .aboutContent {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: black;
+            line-height: 1.6;
+            font-style: serif;
+        }
+
+        #aboutUsSection .aboutContent h4 {
+            font-size: 28px;
+            margin-top: 40px;
+            color: black;
+        }
+
+      /* Footer Styles */
+      #footer {
+    background-color: #191919;
+    color: #fff;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.footer-content {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: space-between;
+    gap: 15%;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+ a {
+    font-size: 14px;
+    color: #d9d9d9;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: #ff7200;
+}
+
+a:hover {
+    color: #ff9400;
+}
+
+.contact-info p {
+    margin: 10px 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li a {
+    font-size: 14px;
+    color: #d9d9d9;
+}
+
+
+        /* Social Media Icons Styles */
+        #socialMedia {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        /* Social Media Icons Styles */
+#socialMedia {
+    position: fixed;
+    right: 20px; /* Adjust this value to move icons further left */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 10;
+}
+
+.socialMediaIcon {
+    width: 50px; /* Increased size for better visibility */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    border-radius: 40%;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.socialMediaIcon:hover {
+    background-color: #555;
+}
+/* Service Section */
+#services {
+    background-image: url('servicebackground.jpeg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    padding: 50px 20px; /* Add padding for spacing */
+    color: white; /* Change text color if needed */
+}
+
+.heading {
+    font-size: 48px;
+    margin-bottom: 30px;
+    color: black; /* Change this to highlight color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for emphasis */
+}
+  .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+            padding: 20px;
+        }
+
+        .card {
+            perspective: 1000px;
+            position: relative;
+            height: 300px; /* Increased to accommodate text */
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            box-shadow: 5px 5px 15px #d1d1d1, -5px -5px 15px #ffffff;
+        }
+
+        .card-front {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+        }
+
+        .card-front img {
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .card-front .label {
+            text-align: center;
+            margin-top: 5px;
+            font-size: 16px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .card-back {
+            background: linear-gradient(145deg, #f0f0f0, #e0e0e0);
+            transform: rotateY(180deg);
+            padding: 20px;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card-back p {
+            font-size: 16px;
+            color: black;
+        }
+
+        /* Smooth page transitions */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .heading {
+                font-size: 36px;
+            }
+        }
+       /* Gallery Section */
+#Gallery {
+    background: linear-gradient(to bottom, rgba(240, 240, 240, 0.9), rgba(240, 240, 240, 1)), url('your-background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 50px 20px;
+    color: #333;
+    font-family: 'Garamond', serif; /* Elegant font choice */
+}
+
+.title {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 36px;
+    color: #6c3f1f; /* Rich brown color */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.main-image {
+    flex: 1;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px 0;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.main-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease;
+}
+
+.main-image:hover img {
+    transform: scale(1.1);
+}
+
+.main-text {
+    flex: 1;
+    max-width: 600px;
+    margin: 20px;
+    text-align: center;
+}
+
+.main-text h1 {
+    font-size: 28px;
+    color: #c0392b; /* Deep red for elegance */
+    margin-bottom: 15px;
+}
+
+.main-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    font-weight: bold; /* Make text bold */
+    color: black; /* Change text color to black */
+}
+
+.small-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.small-image {
+    flex: 1;
+    min-width: 280px;
+    max-width: 320px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.small-image:hover {
+    transform: translateY(-5px);
+}
+
+.small-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.small-image h2 {
+    font-size: 20px;
+    color: #8e44ad; /* Royal purple */
+    margin: 10px 0;
+    font-weight: bold; /* Make title bold */
+}
+
+.small-image p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 5px 0;
+    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    font-weight: bold; /* Make text bold */
+    color: black; /* Change text color to black */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 28px;
+    }
+
+    .main-text h1 {
+        font-size: 24px;
+    }
+
+    .small-image {
+        min-width: 100%; /* Full width on small screens */
+    }
+}
+
+@media (min-width: 325px) and (max-width: 767px){
+    #logoImage{
+        top: 25%;
+        width: 100px;
+    }
+    #menuButton{
+        left: 0;
+        font-size: 12px;
+        top: 12px;
+        display: none;
+    }
+    #getInTouchButton{
+        right: 0;
+        font-size: 12px;
+    }
+    #shopButton{
+        top: 24px;
+        left: 0;
+        font-size: 12px;
+    }
+    #menuButton:hover{
+        background-color: unset;
+        color: white;
+    }
+    .menuOption{
+        font-size: 12px;
+        background-color: cadetblue;
+        font-weight: unset;
+        width: 100%;
+        
+    }
+    #sideMenu{
+        left: 0;
+        position: absolute;
+        height: 25%;
+        flex-direction: row;
+        padding: 0;
+        width: 100%;
+    }
+    #homeParagraph{
+        position: absolute;
+        top: 85%;
+        width: 55%;
+    }
+    #homeParagraph h1{
+        font-size: 18px;
+    }
+    #homeParagraph p{
+        font-size: 12px;
+    }
+    .socialMediaIcon{
+        width: 40px;
+        height: 40px;
+    }
+    #socialMedia{
+        position: fixed;
+    right: 5px;
+    }
+    #aboutUsSection .owner p{
+        font-size: 14px;
+    }
+    #aboutUsSection h2{
+        font-size: 28px;
+    }
+    #aboutUsSection .aboutContent h4{
+        margin-top: 100px ;
+    }
+    #aboutUsSection .aboutContent p{
+        font-size: 14px;
+        text-align: justify;
+    }
+    .heading{
+        font-size: 28px;
+    }
+    .title{
+        font-size: 20px;
+    }
+    .title2{
+        
+    text-align: center;
+    font-size: 20px;
+    color: #6c3f1f;
+    
+    }
+    .main-text p{
+        font-size: 14px;
+    }
+    .footer-section{
+        text-align: center;
+    margin: 18px;
+    line-height: 1.5;
+    }
+}
+
+    </style>
+</head>
+<body>
+  <!-- Home Page Section -->
+  <section id="HomePageSection">
+      <img id="movingImage" src="background2.gif" alt="Moving Image">
+      <div id="overlay"></div>
+      <img id="logoImage" src="logo.sr1-removebg-preview.png" alt="Logo Image">
+      <button id="getInTouchButton" onclick="scrollToFooter()">Get in Touch</button>
+      <button id="menuButton">&#9776;</button> <!-- Menu Button -->
+      <a href="shop.html"><button id="shopButton"><i class="fas fa-shopping-cart"></i> Shop</button></a> <!-- Shop Button -->
+      <nav id="sideMenu">
+          <a href="#HomePageSection" class="menuOption">Home</a>
+          <a href="#aboutUsSection" class="menuOption">About</a>
+          <a href="#services" class="menuOption">Services</a>
+          <a href="#Gallery" class="menuOption">Gallery</a>
+      </nav>
+      <!-- Home Page Paragraph -->
+      <div id="homeParagraph">
+          <h1>Let's Create Something Beautiful Together</h1>
+          <p>We are a creative interior design studio dedicated to transforming your space into a stunning reflection of your personality.</p>
+      </div>
+      <!-- Social Media Icons -->
+      <div id="socialMedia">
+          <a href="https://wa.me/+919177563298" class="socialMediaIcon" title="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/sr_interiors_bheemili" class="socialMediaIcon" title="Instagram">
+              <i class="fab fa-instagram"></i>
+          </a>
+          <a href="mailto:srinteriorsbheemili@gmail.com" class="socialMediaIcon" title="Email">
+              <i class="fas fa-envelope"></i>
+          </a>
+      </div>
+    </section>
+    
+    <!-- About Us Section -->
+    <section id="aboutUsSection">
+        <h2>About Us</h2>
+        <div class="owners">
+            <div class="owner">
+                <img id="owner1Image" src="srinivasu.jpg" alt="Owner 1">
+                <p>Srinivasu Rao</p>
+            </div>
+            <div class="owner">
+                <img id="owner2Image" src="rajesh.jpg" alt="Owner 2">
+                <p>Rajesh</p>
+            </div>
+        </div>
+        <div class="aboutContent">
+            <h4>Our Mission</h4>
+            <p>At SR Interiors, our mission is to design spaces that are not only aesthetically pleasing but also functional and sustainable. With a keen eye for detail and a passion for innovation, we strive to exceed our clients' expectations in every project we undertake.</p>
+        </div>
+    </section>
+
+<!-- end of section -->
+
+<!--Service Section-->
+
+<section id="services">
+  <center><div class="heading">Our Services</div></center>
+  <div class="card-container">
+      <div class="card">
+          <div class="card-inner">
+              <div class="card-front">
+                  <img src="Falseceiling.jpg" alt="False Ceiling">
+                  <div class="label">False Ceiling</div> <!-- Image label -->
+              </div>
+              <div class="card-back">
+                  <p>Transform your living spaces with our high-quality false ceiling installations. We provide modern and elegant designs...</p>
+              </div>
+          </div>
+      </div>
+      <div class="card">
+          <div class="card-inner">
+              <div class="card-front">
+                  <img src="wardrobe1.jpg" alt="Wardrobes">
+                  <div class="label">Wardrobes</div> <!-- Image label -->
+              </div>
+              <div class="card-back">
+                  <p>Maximize your storage with our custom wardrobe solutions. We specialize in designing wardrobes that...</p>
+              </div>
+          </div>
+      </div>
+      <div class="card">
+          <div class="card-inner">
+              <div class="card-front">
+                  <img src="painting.jpg" alt="Painting">
+                  <div class="label">Painting</div> <!-- Image label -->
+              </div>
+              <div class="card-back">
+                  <p>Revitalize your home with a fresh coat of paint. Our services include both interior and exterior works...</p>
+              </div>
+          </div>
+      </div>
+      <div class="card">
+          <div class="card-inner">
+              <div class="card-front">
+                  <img src="tilesfixing.jpg" alt="Tiles Fixing">
+                  <div class="label">Tiles Fixing</div> <!-- Image label -->
+              </div>
+              <div class="card-back">
+                  <p>Upgrade your floors and walls with our expert tile fixing services. We work with various materials...</p>
+              </div>
+          </div>
+      </div>
+      <div class="card">
+          <div class="card-inner">
+              <div class="card-front">
+                  <img src="plumbing.jpeg" alt="Plumbing">
+                  <div class="label">Plumbing</div> <!-- Image label -->
+              </div>
+              <div class="card-back">
+                  <p>Trust us to handle all your plumbing needs, from fixing leaks to installing new pipes...</p>
+              </div>
+          </div>
+      </div>
+      <div class="card">
+          <div class="card-inner">
+              <div class="card-front">
+                  <img src="electrical.jpeg" alt="Electrical">
+                  <div class="label">Electrical</div> <!-- Image label -->
+              </div>
+              <div class="card-back">
+                  <p>Ensure your home’s electrical systems are safe and efficient with our comprehensive services...</p>
+              </div>
+          </div>
+      </div>
+      <div class="card">
+          <div class="card-inner">
+              <div class="card-front">
+                  <img src="kitchencupboards.jpg" alt="Kitchen Cupboards">
+                  <div class="label">Kitchen Cupboards</div> <!-- Image label -->
+              </div>
+              <div class="card-back">
+                  <p>Enhance your kitchen’s functionality with our custom kitchen cupboards that combine form and function...</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+    <!-- end of the section -->
+
+<!-- Our Works -->
+<section id="Gallery">
+  <div class="container">
+      <div class="title">
+          <h1>OUR WORKS</h1>
+      </div>
+      <div class="main-content">
+          <div class="main-image">
+              <img src="..\img\Main.jpeg" alt="Main Image" />
+          </div>
+          <div class="main-text">
+              <h1>Bheemili Beach House</h1>
+              <p>
+                  Bheemili Beach House, located near Visakhapatnam, offers a peaceful escape by the sea. With stunning views of the Bay of Bengal and surrounded by greenery, it's perfect for relaxation. Enjoy the serene beach, explore nearby attractions, or simply unwind in this cozy, comfortable retreat.
+              </p>
+          </div>
+      </div>
+      <div class="title">
+          <h1>WE PRESENT YOU</h1>
+      </div>
+
+      <div class="small-images">
+          <div class="small-image">
+              <img src="..\img\A.jpeg" alt="Image 1" />
+              <h2>Interior 1</h2>
+              <p>
+                  Discover the elegant design of Interior 1, where modern aesthetics meet functional comfort. The space is crafted to provide an inviting atmosphere, perfect for gatherings or quiet moments of reflection. With meticulous attention to detail, each corner tells a story of style and comfort.
+              </p>
+          </div>
+          <div class="small-image">
+              <img src="..\img\B.jpeg" alt="Image 2" />
+              <h2>Interior 2</h2>
+              <p>
+                  Step into Interior 2, a harmonious blend of contemporary design and timeless charm. This space is ideal for those who appreciate a balance between sophistication and warmth. Every element is thoughtfully chosen to create a relaxing yet stylish environment for you and your loved ones.
+              </p>
+          </div>
+          <div class="small-image">
+              <img src="..\img\C.jpeg" alt="Image 3" />
+              <h2>Interior 3</h2>
+              <p>
+                  Experience the unique ambiance of Interior 3, designed to evoke tranquility and inspiration. The thoughtful layout and selection of colors create a serene retreat, making it the perfect place to unwind after a long day. Here, beauty and comfort coexist effortlessly.
+              </p>
+          </div>
+      </div>
+      <div class="title">
+          <h1>MEET OUR LATEST</h1>
+      </div>
+      <div class="main-content">
+          <div class="main-text">
+              <h1>J Studio</h1>
+              <p>
+                  Welcome to J Studio Salon, Vizag's top choice for beauty and wellness. We offer personalized services using premium products to enhance your natural beauty. With a strong commitment to safety and customer satisfaction, we ensure you leave feeling refreshed and rejuvenated. Experience the best in beauty at J Studio Salon!
+              </p>
+          </div>
+          <div class="main-image">
+              <img src="..\img\J2.jpeg" alt="Main Image" />
+          </div>
+      </div>
+      <div class="title2">
+          <h1>SEE OUR OTHER WORKS TOO!</h1>
+      </div>
+      <div class="small-images">
+          <div class="small-image">
+              <img src="..\img\J1.jpeg" alt="Image 1" />
+              <h2>Interior 1</h2>
+              <p>
+                  Explore the inviting atmosphere of this space, where comfort meets style. Interior 1 is designed with versatility in mind, making it suitable for both intimate gatherings and lively celebrations. Every design choice reflects a commitment to quality and aesthetic appeal.
+              </p>
+          </div>
+          <div class="small-image">
+              <img src="..\img\I.jpeg" alt="Image 2" />
+              <h2>Interior 2</h2>
+              <p>
+                  Interior 2 showcases innovative design elements that inspire creativity and relaxation. With its thoughtfully arranged furnishings and soothing color palette, this space serves as a perfect backdrop for cherished memories and moments of tranquility.
+              </p>
+          </div>
+          <div class="small-image">
+              <img src="..\img\H.jpeg" alt="Image 3" />
+              <h2>Interior 3</h2>
+              <p>
+                  Experience the elegance of Interior 3, where every detail is curated to enhance your living experience. This space combines luxury with practicality, offering a stylish environment that encourages both social interaction and personal reflection.
+              </p>
+          </div>
+          <div class="small-image">
+              <img src="..\img\F.jpeg" alt="Image 4" />
+              <h2>Interior 4</h2>
+              <p>
+                  Step into Interior 4, a space that reflects contemporary sophistication and timeless design. This beautifully arranged environment promotes comfort and style, making it the perfect place to gather with friends or relax in solitude.
+              </p>
+          </div>
+      </div>
+      <div class="title">
+          <h1>DEVOTIONAL ॐ</h1>
+      </div>
+      <div class="main-content">
+          <div class="main-image">
+              <img src="..\img\J.jpeg" alt="Main Image" />
+          </div>
+          <div class="main-text">
+              <h1>POOJA ROOM</h1>
+              <p>
+                  Place where families come together to find solace, connect with their spirituality, and offer devotion. This serene environment is designed to foster peace and reflection, making it the heart of spiritual gatherings.
+              </p>
+          </div>
+      </div>
+      <div class="title">
+          <h1>WANNA MEET US ?!</h1>
+      </div>
+  </div>
+</section>
+
+    
+ <!-- Footer -->
+ <footer id="footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h2>ABOUT SR Interiors</h2>
+            <p>At SR Interiors, our mission is to design spaces that are not only aesthetically pleasing but also functional and sustainable. With a keen eye for detail and a passion for innovation, we strive to exceed our clients' expectations in every project we undertake.</p>
+        </div>
+        
+        <div class="footer-section contact">
+            <h2>CONTACT US</h2>
+            <div class="contact-info">
+                <p><strong>Address:</strong> Door No: 4-47, Rekhavanipalem, Bheemunipatnam, Visakhapatnam-531163</p>
+                <p><strong>Phone 1:</strong> <a href="tel:+919177563298">+91 9177563298</a></p>
+                <p><strong>Phone 2:</strong> <a href="tel:+918555904522">+91 8555904522</a></p>
+                <p><strong>Email:</strong> <a href="mailto:srinteriorsbheemili@gmail.com">srinteriorsbheemili@gmail.com</a></p>
+            </div>
+        </div>
+        
+        <div class="footer-section links">
+            <h2>LINKS</h2>
+            <ul>
+                <li><a href="#HomePageSection">Home</a></li>
+                <li><a href="#aboutUsSection">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#Gallery">Gallery</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const menuButton = document.getElementById('menuButton');
+    const sideMenu = document.getElementById('sideMenu');
+    const menuOptions = document.querySelectorAll('.menuOption');
+
+    menuButton.addEventListener('click', () => {
+        if(screen.width>767){
+        sideMenu.style.left = sideMenu.style.left === '0px' ? '-250px' : '0px';
+    }});
+
+    menuOptions.forEach(option => {
+        option.addEventListener('click', () => {
+        if(screen.width>767){
+            sideMenu.style.left = '-250px'; // Close the sidebar after clicking a menu option
+    }});
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!sideMenu.contains(event.target) && !menuButton.contains(event.target)) {
+            if(screen.width>767){
+            sideMenu.style.left = '-250px'; // Close the sidebar if clicked outside
+            }}
+    });
+
+    // Redirect to the home page on refresh
+    window.onbeforeunload = function() {
+        window.location.href = '#HomePageSection'; // Replace with your actual home page URL
+    };
+
+    window.onload = function() {
+        window.scrollTo(0, 0); // Always scroll to the top of the page on load
+    };
+</script>
+
+
+</body>
+</html>
