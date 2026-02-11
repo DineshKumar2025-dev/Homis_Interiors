@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SR Interiors - Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Global Styles */
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        background-color: #f0f0f0;
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      /* Home Page Section */
+      #HomePageSection {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      #logoImage {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: auto;
+        z-index: 10;
+      }
+
+      /* Slogan Styles */
+      #slogan {
+        position: absolute;
+        top: 150px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 18px;
+        color: #333;
+        z-index: 10;
+        font-weight: 600;
+      }
+      /* Materials Heading Styles */
+      #materialsHeading {
+        position: absolute;
+        top: 220px; /* Adjust position as needed */
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 24px;
+        color: #333;
+        font-family: "Playfair Display", serif; /* Use the new font here */
+        font-weight: 700; /* Bold */
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 1.5px;
+        z-index: 10;
+      }
+
+      /* Materials List Styles */
+
+      #materialsList {
+        position: absolute;
+        top: 250px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        text-align: center;
+      }
+
+      #materialsList ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+      }
+
+      #materialsList li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Materials List Styles */
+      #materialsList img {
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+        margin-bottom: 5px;
+        transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for effects */
+      }
+
+      #materialsList img:hover {
+        transform: scale(1.1); /* Scale the image slightly on hover */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+      }
+
+      /* Home Symbol Styles */
+      #homeSymbol {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 10;
+      }
+
+      #homeSymbol a {
+        text-decoration: none;
+        color: #333;
+        font-size: 34px;
+      }
+
+      #homeSymbol a:hover {
+        color: #555;
+      }
+
+      /* Social Media Icons Styles */
+      #socialMedia {
+        position: fixed;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        z-index: 10;
+      }
+
+      .socialMediaIcon {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #333;
+        border-radius: 40%;
+        color: white;
+        font-size: 24px;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .socialMediaIcon:hover {
+        background-color: #555;
+      }
+
+      /* Contact Numbers Styles */
+      #contactNumbers {
+        display: none;
+        position: fixed;
+        right: 90px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: white;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+        z-index: 20;
+      }
+
+      /* Logout Icon */
+      #logoutIcon {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10;
+        cursor: pointer;
+        font-size: 30px;
+        color: #333;
+      }
+
+      #logoutIcon:hover {
+        color: #555;
+      }
+
+      /* Login Form Styles */
+      #loginBox,
+      #stockBillBox {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        width: 250px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        z-index: 1000;
+      }
+
+      #loginBox h2,
+      #stockBillBox h2 {
+        margin-bottom: 15px;
+        color: #333;
+        font-size: 22px;
+      }
+
+      #loginBox input[type="text"],
+      #loginBox input[type="password"] {
+        width: 80%;
+        padding: 8px;
+        margin: 8px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+
+      #loginBox button,
+      #stockBillBox button {
+        width: 80%;
+        padding: 8px;
+        margin-top: 15px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      #loginBox button:hover,
+      #stockBillBox button:hover {
+        background-color: #555;
+      }
+
+      /* Close button styles */
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 30px;
+        color: #555;
+        cursor: pointer;
+      }
+
+      .close-btn:hover {
+        color: #333;
+      }
+      body {
+  background: linear-gradient(270deg, #d1deff, #ffd5c9, #d0ffe1);
+  background-size: 600% 600%;
+  animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+      @media (min-width: 325px) and (max-width: 767px) {
+        #materialsList ul {
+          flex-direction: column;
+        }
+        #homeSymbol a {
+          font-size: 20px;
+        }
+        #slogan {
+          top: 125px;
+        }
+        #homeSymbol {
+          top: 30px;
+        }
+        #logoImage {
+          width: 60px;
+        }
+        #logoutIcon {
+          display: none;
+        }
+        #materialsHeading {
+          top: 180px;
+        }
+        .socialMediaIcon {
+          width: 25px;
+          height: 25px;
+          padding: 10px;
+        }
+        #socialMedia {
+          position: fixed;
+          right: 5px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="homeSymbol">
+      <a href="ceiling.html#HomePageSection" title="Go to Home">
+        <i class="fas fa-home"></i>
+      </a>
+    </div>
+
+    <section id="HomePageSection">
+      <img
+        id="logoImage"
+        src="logo.sr1-removebg-preview.png"
+        alt="Logo Image"
+      />
+
+      <div id="slogan">Works & Sales</div>
+
+      <div id="materialsHeading">Materials We Sell</div>
+
+      <!-- Materials List -->
+      <div id="materialsList">
+        <ul>
+          <li>
+            <img
+              src="falseceilingmaterial.jpeg"
+              alt="False Ceiling Materials"
+            />
+            False Ceiling Materials
+          </li>
+          <li>
+            <img src="popmaterial.jpeg" alt="POP Materials" /> POP Materials
+          </li>
+          <li>
+            <img src="hardwarematerail.jpeg" alt="Hardware Materials" />
+            Hardware Materials
+          </li>
+        </ul>
+      </div>
+
+      <!-- Social Media Icons -->
+      <div id="socialMedia">
+        <a
+          href="https://wa.me/+919177563298"
+          class="socialMediaIcon"
+          title="WhatsApp"
+        >
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <div class="socialMediaIcon" id="phoneIcon" title="Phone">
+          <i class="fas fa-phone"></i>
+        </div>
+      </div>
+    </section>
+
+    <div id="logoutIcon" title="Logout">
+      <i class="fas fa-sign-out-alt"></i>
+    </div>
+
+    <div id="contactNumbers">
+      <p>Contact Numbers:</p>
+      <p>+91 91775 63298</p>
+      <p>+91 98765 43210</p>
+    </div>
+
+    <div id="loginBox">
+      <span class="close-btn" id="closeLoginBox">&times;</span>
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button id="loginButton">Login</button>
+    </div>
+    <div id="stockBillBox">
+      <span class="close-btn" id="closeStockBillBox">&times;</span>
+      <h2>Stock & Bill</h2>
+      <a href="stockdetails.html" style="text-decoration: none">
+        <button>Stock Details</button>
+      </a>
+      <a href="bill.html" style="text-decoration: none">
+        <button>Bill Generator</button>
+      </a>
+    </div>
+
+    <script>
+      // Show Login Box
+      document.getElementById("logoutIcon").onclick = function () {
+        document.getElementById("loginBox").style.display = "block";
+      };
+
+      // Close Login Box
+      document.getElementById("closeLoginBox").onclick = function () {
+        document.getElementById("loginBox").style.display = "none";
+      };
+
+      // Login functionality
+      document.getElementById("loginButton").onclick = function () {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Replace with actual login validation
+        if (username === "admin" && password === "1234") {
+          document.getElementById("loginBox").style.display = "none";
+          document.getElementById("stockBillBox").style.display = "block";
+        } else {
+          alert("Invalid credentials");
+        }
+      };
+
+      // Close Stock & Bill Box
+      document.getElementById("closeStockBillBox").onclick = function () {
+        document.getElementById("stockBillBox").style.display = "none";
+      };
+
+      // Toggle Contact Numbers
+      document.getElementById("phoneIcon").onclick = function () {
+        const contactNumbers = document.getElementById("contactNumbers");
+        contactNumbers.style.display =
+          contactNumbers.style.display === "block" ? "none" : "block";
+      };
+    </script>
+  </body>
+</html>
