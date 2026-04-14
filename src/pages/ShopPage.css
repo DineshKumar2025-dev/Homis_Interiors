@@ -106,6 +106,14 @@
   box-shadow: var(--shadow-sm);
 }
 
+/* Contact section layout (fields styled in ContactForm.css) */
+.page-shop .shop-contact {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 2rem) clamp(3rem, 8vh, 5rem);
+}
+
 /* Scoped to shop only — dark glass strip reads on light gradient background */
 .page-shop #socialMedia {
   position: fixed;

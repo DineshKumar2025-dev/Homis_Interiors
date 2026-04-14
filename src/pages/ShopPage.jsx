@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import ContactForm from "../components/ContactForm.jsx";
 import "./ShopPage.css";
 
 export default function ShopPage() {
@@ -30,11 +31,7 @@ export default function ShopPage() {
       </div>
 
       <section id="HomePageSection">
-        <img
-          id="logoImage"
-          src="/img/logo.png"
-          alt="Logo"
-        />
+        <img id="logoImage" src="/img/logo.png" alt="Logo" />
         <div id="slogan">Works & Sales</div>
         <div id="materialsHeading">Materials We Sell</div>
         <div id="materialsList">
@@ -77,6 +74,10 @@ export default function ShopPage() {
             <i className="fas fa-phone" />
           </button>
         </div>
+      </section>
+
+      <section className="shop-contact" id="shop-contact" aria-labelledby="shop-contact-title">
+        <ContactForm />
       </section>
 
       <div
