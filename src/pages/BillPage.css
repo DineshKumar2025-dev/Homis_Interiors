@@ -1,0 +1,254 @@
+.page-bill {
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+}
+
+.page-bill #HomePageSection {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(4.5rem, 10vw, 5.5rem) clamp(1rem, 4vw, 2rem) 2rem;
+}
+
+.page-bill #logoImage {
+  display: block;
+  margin: 0 auto 0.5rem;
+  width: 56px;
+  height: auto;
+}
+
+.page-bill #slogan {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+}
+
+.page-bill #homeSymbol {
+  position: fixed;
+  top: clamp(14px, 3vw, 20px);
+  left: clamp(14px, 3vw, 20px);
+  z-index: 30;
+}
+
+.page-bill #homeSymbol a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 1rem;
+  text-decoration: none;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration) var(--ease-out), background var(--duration) var(--ease-out);
+}
+
+.page-bill #homeSymbol a:hover {
+  transform: scale(1.05);
+  background: var(--accent-soft);
+}
+
+.page-bill .main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  align-items: start;
+}
+
+.page-bill .form-container {
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.page-bill .form-container h2 {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.page-bill .form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.page-bill .form-group {
+  flex: 1 1 200px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.page-bill .form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.page-bill .form-control {
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  width: 100%;
+  transition: border-color var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
+}
+
+.page-bill .form-control:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.page-bill .required {
+  color: #b91c1c;
+}
+
+.page-bill .btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.page-bill .btn-primary,
+.page-bill .btn-cancel {
+  padding: 0.65rem 1.35rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: none;
+  transition: background var(--duration) var(--ease-out), transform var(--duration) var(--ease-out);
+}
+
+.page-bill .btn-primary {
+  background: var(--color-text);
+  color: #fff;
+}
+
+.page-bill .btn-primary:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+
+.page-bill .btn-cancel {
+  background: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border-strong);
+}
+
+.page-bill .btn-cancel:hover {
+  background: #f5f5f4;
+}
+
+.page-bill .image-container {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  min-height: 200px;
+  background: linear-gradient(145deg, #e7e5e4, #f5f3f0);
+}
+
+.page-bill .image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.page-bill #receipt {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.page-bill #receipt h3 {
+  font-family: var(--font-display);
+  text-align: center;
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+}
+
+.page-bill .receipt-details {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+@media print {
+  .page-bill #homeSymbol,
+  .page-bill .main-container .image-container,
+  .page-bill .btn-group {
+    display: none !important;
+  }
+
+  .page-bill .main-container {
+    grid-template-columns: 1fr;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .page-bill #receipt,
+  .page-bill #receipt * {
+    visibility: visible;
+  }
+
+  .page-bill #receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .page-bill .main-container {
+    grid-template-columns: 1fr;
+  }
+
+  .page-bill .image-container {
+    order: -1;
+    max-height: 280px;
+  }
+}
+
+@media (min-width: 325px) and (max-width: 767px) {
+  .page-bill .main-container {
+    align-items: stretch;
+  }
+
+  .page-bill .form-container {
+    margin: 0;
+    max-width: 100%;
+  }
+}
