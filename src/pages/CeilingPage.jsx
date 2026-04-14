@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
+import ContactForm from "../components/ContactForm.jsx";
 import "./CeilingPage.css";
 
 const services = [
@@ -89,6 +90,7 @@ const galleryBlock2 = [
 ];
 
 export default function CeilingPage() {
+  const [contactModalOpen, setContactModalOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [wideLayout, setWideLayout] = useState(
     () => typeof window !== "undefined" && window.innerWidth > 767
@@ -103,8 +105,8 @@ export default function CeilingPage() {
     return () => window.removeEventListener("resize", mq);
   }, []);
 
-  const scrollToFooter = useCallback(() => {
-    document.getElementById("footer")?.scrollIntoView({ behavior: "smooth" });
+  const openContactModal = useCallback(() => {
+    setContactModalOpen(true);
   }, []);
 
   useEffect(() => {
@@ -167,7 +169,7 @@ export default function CeilingPage() {
             <button
               type="button"
               id="getInTouchButton"
-              onClick={scrollToFooter}
+              onClick={openContactModal}
             >
               Get in Touch
             </button>
@@ -374,8 +376,49 @@ export default function CeilingPage() {
             Thoughtful spaces for the way you live.
           </p>
           <a href="mailto:homisinteriors@gmail.com">homisinteriors@gmail.com</a>
+          <p className="site-footer__cta-wrap">
+            <button
+              type="button"
+              className="site-footer__cta"
+              onClick={() => setContactModalOpen(true)}
+            >
+              Get in touch
+            </button>
+          </p>
         </div>
       </footer>
+
+      {contactModalOpen && (
+        <div
+          className="contact-modal-backdrop"
+          role="presentation"
+          onClick={() => setContactModalOpen(false)}
+        >
+          <div
+            className="contact-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="contact-modal-title"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="contact-modal__close"
+              onClick={() => setContactModalOpen(false)}
+              aria-label="Close"
+            >
+              &times;
+            </button>
+            <h2 id="contact-modal-title" className="contact-modal__title">
+              Get in touch
+            </h2>
+            <p className="contact-modal__subtitle">
+              Same form as the shop — we will reply by phone or email.
+            </p>
+            <ContactForm compact idPrefix="hero-" />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
