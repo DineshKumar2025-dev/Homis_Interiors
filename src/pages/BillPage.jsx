@@ -69,7 +69,7 @@ export default function BillPage() {
       <section id="HomePageSection">
         <img
           id="logoImage"
-          src="/Interiors/logo.sr1-removebg-preview.png"
+          src="Interiors/logo.sr1-removebg-preview.png"
           alt="Logo"
         />
         <div id="slogan">Works & Sales</div>
